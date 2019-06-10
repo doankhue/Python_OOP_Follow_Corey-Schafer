@@ -26,13 +26,43 @@ class Employee:
         if day.weekday() == 5 or day.weekday()==6:
             return False
         return True
-emp_1 = Employee('Jon','Doe',500)
-emp_2 = Employee('Jon','Smith',800)
 
-import datetime
-my_date = datetime.date(2016, 7, 11)
-print(Employee.is_workday(my_date))
+class Developer(Employee):
+    raise_amount = 1.10
+    def __init__(self, first, last, pay, prog_lang):
+        super().__init__(first, last, pay)
+        self.prog_lang = prog_lang
 
+class Manager(Employee):
+    def __init__(self, first, last, pay, employees = None):
+        super().__init__(first, last, pay)
+        if employees is None:
+            self.employees = []
+        else:
+            self.employees = employees
+    def add_emp(self, emp):
+        if emp not in self.employees:
+            self.employees.append(emp)
+    def remove_emp(self, emp):
+        if emp in self.employees:
+            self.employees.remove(emp)
+    def print_emps(self):
+        for emp in self.employees:
+            print('-->', emp.full_name())
+emp_1 = Developer('Jon','Doe',1000, 'Python')
+emp_2 = Developer('Jon','Smith',800, 'Js')
+# print(emp_1.pay)
+# emp_1.apply_raise()
+# print(emp_1.pay)
+# print(emp_1.prog_lang)
+# import datetime
+# my_date = datetime.date(2016, 7, 11)
+# print(Employee.is_workday(my_date))
+
+mng_1 = Manager('Sue', 'Smith', 9000, [emp_1])
+mng_1.add_emp(emp_2)
+print(mng_1.email)
+mng_1.print_emps()
 # Employee.set_raise_amt(1.05)
 # print(Employee.raise_amount)
 # print(emp_1.raise_amount)
@@ -40,8 +70,8 @@ print(Employee.is_workday(my_date))
 
 # emp_1.apply_raise()
 
-# print(emp_1.pay)
-# print(emp_2.email)
+print(emp_1.email)
+print(emp_2.email)
 # print(Employee.num_of_emps)
 
 # print(emp_2.full_name())
