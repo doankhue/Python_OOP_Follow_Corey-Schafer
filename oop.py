@@ -26,6 +26,10 @@ class Employee:
         if day.weekday() == 5 or day.weekday()==6:
             return False
         return True
+    def __repr__(self):
+        return "Employee('{}','{}','{}')".format(self.first, self.last, self.pay)
+    def __str__(self):
+        return '{} - {}'.format(self.full_name(), self.email)
 
 class Developer(Employee):
     raise_amount = 1.10
@@ -49,8 +53,12 @@ class Manager(Employee):
     def print_emps(self):
         for emp in self.employees:
             print('-->', emp.full_name())
-emp_1 = Developer('Jon','Doe',1000, 'Python')
-emp_2 = Developer('Jon','Smith',800, 'Js')
+emp_1 = Employee('Jon','Doe',1000 )
+emp_2 = Employee('Jon','Smith',800 )
+print(repr(emp_1))
+print(str(emp_1))
+
+
 # print(emp_1.pay)
 # emp_1.apply_raise()
 # print(emp_1.pay)
@@ -59,10 +67,10 @@ emp_2 = Developer('Jon','Smith',800, 'Js')
 # my_date = datetime.date(2016, 7, 11)
 # print(Employee.is_workday(my_date))
 
-mng_1 = Manager('Sue', 'Smith', 9000, [emp_1])
-mng_1.add_emp(emp_2)
-print(mng_1.email)
-mng_1.print_emps()
+# mng_1 = Manager('Sue', 'Smith', 9000, [emp_1])
+# mng_1.add_emp(emp_2)
+# print(mng_1.email)
+# mng_1.print_emps()
 # Employee.set_raise_amt(1.05)
 # print(Employee.raise_amount)
 # print(emp_1.raise_amount)
@@ -70,8 +78,8 @@ mng_1.print_emps()
 
 # emp_1.apply_raise()
 
-print(emp_1.email)
-print(emp_2.email)
+# print(emp_1.email)
+# print(emp_2.email)
 # print(Employee.num_of_emps)
 
 # print(emp_2.full_name())
