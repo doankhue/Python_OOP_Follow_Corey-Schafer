@@ -16,6 +16,8 @@ class Subject(object):
         for observer in self._observers:
             if modifier != observer:
                 observer.update(self)
+#read code
+# class subject
 # Example usage
 class Data(Subject):
     def __init__(self, name=''):
