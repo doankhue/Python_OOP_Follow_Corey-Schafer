@@ -43,3 +43,5 @@ class HexViewer:
 class DecimalViewer:
     def update(self, subject):
         print(u'DecimalViewer: Subject %s has data %d' % (subject.name, subject.data))
+
+#close
