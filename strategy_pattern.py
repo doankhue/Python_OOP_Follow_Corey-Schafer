@@ -71,3 +71,5 @@ jet_1.go(flying_fast)
 # moto_1.go()
 # airplan_1.go()
 # jet_1.go()
+
+#close
